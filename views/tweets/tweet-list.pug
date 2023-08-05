@@ -4,4 +4,9 @@ block content
     div(class="d-flex flex-row content mx-auto") 
         div(class="profile-container")
             include ../includes/profile.pug
-        div(class="flex-fill") Tweets
+        div(class="flex-fill")
+            if tweets
+                each tweet in tweets
+                    div(class="card tweet-element")
+                        div(class="card-body")= tweet.content
+
