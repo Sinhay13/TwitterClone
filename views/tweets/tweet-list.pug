@@ -1,12 +1,17 @@
-extends ../layout.pug  
+// Vérifie s'il y a des tweets
+if tweets
 
-block content 
-    div(class="d-flex flex-row content mx-auto") 
-        div(class="profile-container")
-            include ../includes/profile.pug
-        div(class="flex-fill")
-            if tweets
-                each tweet in tweets
-                    div(class="card tweet-element")
-                        div(class="card-body")= tweet.content
-
+  // Pour chaque tweet dans la liste de tweets
+  each tweet in tweets
+  
+    // Crée une division avec la classe "card tweet-element" pour afficher chaque tweet
+    div(class="card tweet-element")
+    
+      // Crée une division avec la classe "card-body" pour le contenu du tweet
+      div(class="card-body")
+      
+        // Crée une division avec la classe "card-text" pour afficher le contenu du tweet
+        div(class="card-text")= tweet.content
+        
+        // Crée un bouton avec la classe "btn btn-danger mt-2 float-right" pour supprimer le tweet
+        button(class="btn btn-danger mt-2 float-right") x

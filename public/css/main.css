@@ -1,31 +1,38 @@
- .content{
-    max-width: 1000px;
-    margin-top: 20px;
+/* Définit les styles pour le contenu principal de la page */
+.content {
+    max-width: 1000px; /* Largeur maximale du contenu */
+    margin-top: 20px; /* Marge en haut du contenu */
 }
 
-.profile-container{
-    width: 30%;
-    max-width: 300px;
+/* Styles pour la section affichant le profil de l'utilisateur */
+.profile-container {
+    width: 30%; /* Largeur de la section */
+    max-width: 300px; /* Largeur maximale de la section */
 }
 
-.btn-tweet{
-    border-radius: 30px;
+/* Styles pour le bouton "Tweet" */
+.btn-tweet {
+    border-radius: 30px; /* Bordure arrondie du bouton */
 }
 
-.b{
-    border: 1px solid red;
+/* Styles pour les éléments avec la classe "b" */
+.b {
+    border: 1px solid red; /* Bordure de 1px en rouge */
 }
 
-.b1{
-    border: 1px solid green;
+/* Styles pour les éléments avec la classe "b1" */
+.b1 {
+    border: 1px solid green; /* Bordure de 1px en vert */
 }
 
-.tweet-element{
-    border-radius: 0px;
-    border-top: 0px;
-    font-size: 14px;
+/* Styles pour les éléments de tweet */
+.tweet-element {
+    border-radius: 0px; /* Bordure sans arrondi */
+    border-top: 0px; /* Bordure supérieure de 0px */
+    font-size: 14px; /* Taille de police de 14px */
 }
 
-.tweet-element:first-child{
-    border-top:1px solid #ddd;
+/* Styles pour le premier élément de tweet */
+.tweet-element:first-child {
+    border-top: 1px solid #ddd; /* Bordure supérieure de 1px en gris */
 }
