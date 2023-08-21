@@ -6,4 +6,4 @@ mongoose.connect(config.mongoURI)
     .catch(err => console.log(err));
 
 
-                // Pour me connecter a database identifiants d'accer a la database verouiller sur un fichier en loca
+                // Pour me connecter a database identifiants d'accer a la database verouiller sur un fichier en local 
