@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+const config = require('./config');
 
-mongoose.connect('mongodb+srv://yahnis:Vampires13@cluster0.die46s3.mongodb.net/tweeter?retryWrites=true')
-                .then( () => console.log('db ok !'))
-                .catch(err => console.log(err));
+mongoose.connect(config.mongoURI)
+    .then(() => console.log('db ok !'))
+    .catch(err => console.log(err));
+
 
                 // Pour me connecter a database 
