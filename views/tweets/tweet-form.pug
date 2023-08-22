@@ -1,46 +1,46 @@
 extends ../layout
-// je link mon layout
 
 block content
-      // je declare mon bloc content
+  // je declare mon bloc content
 
   div(class="d-flex flex-row content mx-auto")
     div(class="profile-container")
       include ../includes/profile
       // J'inclu profile
-// Crée une division avec la classe "flex-fill"
-div(class="flex-fill")
 
-  // Crée un formulaire avec la classe "card" et configure la méthode et l'action
-  form(class="card" method="post" action="/api/tweets")
-  
-    // Crée une division avec la classe "card-header" pour le titre du formulaire
-    div(class="card-header bg-dark text-white text-center") Write a Tweet
+  // Crée une division avec la classe "flex-fill"
+  div(class="flex-fill")
+
+    // Crée un formulaire avec la classe "card" et configure la méthode et l'action
+    form(class="card" method="post" action="/tweets")
     
-    // Crée une division avec la classe "card-body" pour le contenu du formulaire
-    div(class="card-body")
-    
-      // Crée une division avec la classe "mb-3" pour le champ de texte
-      div(class="mb-3")
+      // Crée une division avec la classe "card-header" pour le titre du formulaire
+      div(class="card-header bg-dark text-white text-center") Write a Tweet
       
-        // Crée une zone de texte avec la classe "form-control" et le nom "content"
-        // pour saisir le contenu du tweet, avec un texte de substitution
-        textarea(class="form-control" name="content" placeholder="What is happening")
+      // Crée une division avec la classe "card-body" pour le contenu du formulaire
+      div(class="card-body")
+      
+        // Crée une division avec la classe "mb-3" pour le champ de texte
+        div(class="mb-3")
         
-        // Vérifie s'il y a des erreurs
-        if errors 
-        
-          // Crée une liste non ordonnée avec la classe "my-2" pour afficher les erreurs
-          ul(class="my-2")
+          // Crée une zone de texte avec la classe "form-control" et le nom "content"
+          // pour saisir le contenu du tweet, avec un texte de substitution
+          textarea(class="form-control" name="content" placeholder="What is happening")
           
-            // Pour chaque erreur dans la liste d'erreurs
-            each error in  errors
+          // Vérifie s'il y a des erreurs
+          if errors 
             
-              // Crée un élément de liste avec la classe "text-danger" pour afficher l'erreur
-              li(class="text-danger")= error
-              
-      // Crée une division avec la classe "w-100" pour le bouton "Send"
-      div(class="w-100")
-      
-        // Crée un bouton de type "submit" avec la valeur "Send" et les classes "btn btn-primary ms-auto d-block"
-        input(type="submit" value="Send" class="btn btn-primary ms-auto d-block")
+            // Crée une liste non ordonnée avec la classe "my-2" pour afficher les erreurs
+            ul(class="my-2")
+            
+              // Pour chaque erreur dans la liste d'erreurs
+              each error in errors
+                
+                // Crée un élément de liste avec la classe "text-danger" pour afficher l'erreur
+                li(class="text-danger")= error
+                
+        // Crée une division avec la classe "w-100" pour le bouton "Send"
+        div(class="w-100")
+        
+          // Crée un bouton de type "submit" avec la valeur "Send" et les classes "btn btn-primary ms-auto d-block"
+          input(type="submit" value="Send" class="btn btn-primary ms-auto d-block")

@@ -30,13 +30,12 @@ exports.tweetDelete = async(req, res, next) => {
     await deleteTweet(tweetId); // j'invoke ma fonction de supression de tweet avec le bon Id
     const tweets=await getTweets(); // je recupere ma list de tweet 
     res.render('tweets/tweet-list', { tweets }); // je retourne sur ma liste de tweet
-    res.end();// je termine le process
+    //res.end();// je termine le process
   }catch(e){ // je deal avec mon erreur
     next(e);
   }
-
-
 }
 
+   
 
 // c'est partie contien les functions pour gérer les requetes http de mon app

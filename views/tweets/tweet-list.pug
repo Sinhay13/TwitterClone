@@ -14,4 +14,5 @@ if tweets
         div(class="card-text")= tweet.content
         
         // Crée un bouton avec la classe "btn btn-danger mt-2 float-right" pour supprimer le tweet
-        button(class="btn btn-danger mt-2 float-right") x
+        button(class="btn btn-danger mt-2 float-right" tweetId=tweet._id) x
+        // on lui demande de recuperer un id

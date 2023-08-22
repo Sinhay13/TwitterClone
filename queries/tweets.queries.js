@@ -9,5 +9,8 @@ exports.createTweet = (tweet) => { // cette fonction a pour but de créer un twe
   return newTweet.save(); // je sauve mon tweet
 }
 
+exports.deleteTweet=(tweetId) => {
+  return Tweet.findByIdAndDelete(tweetId).exec(); // method pour gérer la supression des tweets 
+}
 
 // Mais function logique que j'utilise dans mon controler sont repertorier ici. 
