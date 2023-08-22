@@ -1,21 +1,27 @@
-window.addEventListener('DOMContentLoaded',()=>{
+// Wait for the DOM content to load before binding the tweet functionality
+window.addEventListener('DOMContentLoaded', () => {
     bindTweet();
-    
-})
+});
 
-function bindTweet(){// function conter client pour suprimer les tweets
-    const elements=document.querySelectorAll("btn-danger")// on lui demande de checker les element contenant cette classe
-    const tweetContainer = document.querySelector("#tweet-list-container")//on recupere l'id dans la vue tweet.pug
-    console.log("elements")
-    elements.forEach(e=>{
-        e.addEventListener  ("click",($event)=>{ // on lui dit d'ecouter quand on clic
-            const tweetId= $event.target.getAttribute('tweetid') // on recupere l'Id dans target + get attribute
-            axios.delete('/tweets/' + tweetId)// on appel axio et on lui demande de delete on nome nos elements en fonction de notre route
-                 .then(function(response){// on gére la reponse
-                    tweetContainer.innerHTML=response.data// on recupere la reponse
-                    bindTweet()// on rapelle notre pour actualiser la liste des tweets
+// Function to bind the tweet delete functionality to buttons
+function bindTweet() {
+    const elements = document.querySelectorAll(".btn-danger"); // Select elements with the class "btn-danger"
+    const tweetContainer = document.querySelector("#tweet-list-container"); // Get the tweet container element
+    console.log("elements"); // Log the elements to the console
+    
+    // Loop through each element with the class "btn-danger"
+    elements.forEach(e => {
+        // Add a click event listener to each element
+        e.addEventListener("click", ($event) => {
+            const tweetId = $event.target.getAttribute('tweetid'); // Get the tweet ID from the attribute
+            axios.delete('/tweets/' + tweetId) // Send a delete request to the server
+                 .then(function(response) {
+                    tweetContainer.innerHTML = response.data; // Update the tweet container with the new data
+                    bindTweet(); // Rebind the tweet functionality to updated elements
                  })
-                 .catch( function(err){console.log(err)});// on gére lerreur
-        })
-    })
+                 .catch(function(err) {
+                    console.log(err); // Log any errors
+                 });
+        });
+    });
 }
