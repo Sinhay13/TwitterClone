@@ -13,4 +13,8 @@ exports.deleteTweet=(tweetId) => {
   return Tweet.findByIdAndDelete(tweetId).exec(); // method pour gérer la supression des tweets 
 }
 
+exports.getTweet=(tweetId) => {
+  return Tweet.findOne({_id:tweetId}).exec();// function pour recuperer un tweet en fonction de sont Id 
+}
+
 // Mais function logique que j'utilise dans mon controler sont repertorier ici. 

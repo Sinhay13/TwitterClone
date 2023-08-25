@@ -10,8 +10,8 @@ if tweets
       // Crée une division avec la classe "card-body" pour le contenu du tweet
       div(class="card-body")
       
-        // Crée une division avec la classe "card-text" pour afficher le contenu du tweet
-        div(class="card-text")= tweet.content
+        // Crée avec la classe "card-text" pour afficher le contenu du tweet + icone pour modifier tweet (ne pas oublier le dernier slash)
+        a(class="card-text" href="/tweets/edit/" + tweet._id)= tweet.content
         
         // Crée un bouton avec la classe "btn btn-danger mt-2 float-right" pour supprimer le tweet
         button(class="btn btn-danger mt-2 float-right" tweetId=tweet._id) x

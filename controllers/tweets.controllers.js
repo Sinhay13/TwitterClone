@@ -1,4 +1,4 @@
-const { getTweets, createTweet, deleteTweet  } = require('../queries/tweets.queries'); //l'appel de mes functions depuis ma queries
+const { getTweets, createTweet, deleteTweet, getTweet  } = require('../queries/tweets.queries'); //l'appel de mes functions depuis ma queries
 
 exports.tweetList = async (req, res, next) => {
   try {
@@ -10,7 +10,7 @@ exports.tweetList = async (req, res, next) => {
 }
 
 exports.tweetNew = (req, res, next) => { // cette fonction a pour but d'appeler seulement la form pour créer un tweet
-  res.render('tweets/tweet-form');
+  res.render('tweets/tweet-form',{tweet:{}});
 }
 
 exports.tweetCreate = async (req, res, next) => {
@@ -36,6 +36,15 @@ exports.tweetDelete = async(req, res, next) => {
   }
 }
 
-   
+ exports.tweetEdit= async(req, res, next) => { // fonction pour édité
+    try{
+      const tweetId=req.params.tweetId;// on recupére l'ID du tweet
+      const tweet=  getTweet(tweetId);// on recupere le tweet en question avec une fonction propre
+      res.render('tweets/tweet-form',{tweet}); // et on retourne sur notre page form avec notre tweet pre charger
+    }catch(e){
+      next(e);
+    }
+ 
+ }
 
-// c'est partie contien les functions pour gérer les requetes http de mon app
+// c'est partie contien les functions pour gérer les requetes http de mon app  
