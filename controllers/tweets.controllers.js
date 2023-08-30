@@ -1,4 +1,4 @@
-const { getTweets, createTweet, deleteTweet, getTweet  } = require('../queries/tweets.queries'); //l'appel de mes functions depuis ma queries
+const { getTweets, createTweet, deleteTweet, getTweet, updateTweet  } = require('../queries/tweets.queries'); //l'appel de mes functions depuis ma queries
 
 exports.tweetList = async (req, res, next) => {
   try {
@@ -45,6 +45,17 @@ exports.tweetDelete = async(req, res, next) => {
       next(e);
     }
  
+ }
+ 
+ exports.tweetUpdate = async(req, res, next)=> {
+  try{
+    const body =req.body; // pour stoker le body de mon tweet 
+    await updateTweet(tweetId, body); // j'apelle ma fonction avec les bon parametre pour update mon tweet
+    res.redirect('/tweets');// je retourne sur mes tweets
+  }catch(e){
+    const errors = Object.keys(e.errors).map( key => e.errors[key].message );
+    res.status(400).render('tweets/tweet-form', { errors }); // on gére comme dans la creation de tweet 
+  }
  }
 
 // c'est partie contien les functions pour gérer les requetes http de mon app  

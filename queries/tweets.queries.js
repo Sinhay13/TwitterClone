@@ -17,4 +17,12 @@ exports.getTweet=(tweetId) => {
   return Tweet.findOne({_id:tweetId}).exec();// function pour recuperer un tweet en fonction de sont Id 
 }
 
+exports.updateTweet = (tweetId,tweet) => {
+  return Tweet.findByAndUpdate(tweetId, {$set: tweet }, {runValidators: true}); // ma methode  pour update et j'oubli pas de metre les validators car avant les mis a jour il ne sont pas mis en place 
+
+}
+
 // Mais function logique que j'utilise dans mon controler sont repertorier ici. 
+
+
+ 
