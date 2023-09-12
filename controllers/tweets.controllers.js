@@ -39,7 +39,7 @@ exports.tweetDelete = async(req, res, next) => {
  exports.tweetEdit= async(req, res, next) => { // fonction pour édité
     try{
       const tweetId=req.params.tweetId;// on recupére l'ID du tweet
-      const tweet=  getTweet(tweetId);// on recupere le tweet en question avec une fonction propre
+      const tweet= await getTweet(tweetId);// on recupere le tweet en question avec une fonction propre
       res.render('tweets/tweet-form',{tweet}); // et on retourne sur notre page form avec notre tweet pre charger
     }catch(e){
       next(e);
@@ -47,15 +47,16 @@ exports.tweetDelete = async(req, res, next) => {
  
  }
  
- exports.tweetUpdate = async(req, res, next)=> {
-  try{
-    const body =req.body; // pour stoker le body de mon tweet 
-    await updateTweet(tweetId, body); // j'apelle ma fonction avec les bon parametre pour update mon tweet
-    res.redirect('/tweets');// je retourne sur mes tweets
-  }catch(e){
+ exports.tweetUpdate = async (req, res, next) => {
+  const tweetId = req.params.tweetId; // je recupere l'id du tweet a update
+  try {
+    const body = req.body; // je stoke lle body dans une cst
+    await updateTweet(tweetId, body); // je ma function d'update
+    res.redirect('/tweets'); // je redirige ver la page des tweets
+  } catch(e) { // je deal avec mon erreur 
     const errors = Object.keys(e.errors).map( key => e.errors[key].message );
-    res.status(400).render('tweets/tweet-form', { errors }); // on gére comme dans la creation de tweet 
+    const tweet = await getTweet(tweetId);
+    res.status(400).render('tweets/tweet-form', { errors, tweet });
   }
- }
-
+}
 // c'est partie contien les functions pour gérer les requetes http de mon app  

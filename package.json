@@ -3,15 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-
-
-  
-    "scripts": {
-      "start": "NODE_ENV=development nodemon app.js",
-      "start:prod": "NODE_ENV=production nodemon app.js",
-      "test": "echo 'Error: no test specified' && exit 1"
-    },
-  
+  "scripts": {
+    "start": "NODE_ENV=development nodemon app.js",
+    "start:prod": "NODE_ENV=production nodemon app.js",
+    "test": "echo 'Error: no test specified' && exit 1"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +15,7 @@
     "express": "^4.18.2",
     "mongoose": "^7.4.2",
     "morgan": "^1.10.0",
+    "nodemon": "^3.0.1",
     "pug": "^3.0.2"
   }
 }

@@ -20,7 +20,7 @@ app.use(index);// ceci corspond au nom de mon fichier route
 
 
 
-if (process.env.NODE_ENV === 'development') {// fonction pour diferencier si on est en mode de developpement ou en mode de priduction et comment gerrer les erreurs en fonction
+if (process.env.NODE_ENV === 'development') {// fonction pour diferencier si on est en mode de developpement ou en mode de priduction et comment gerrer les erreurs en fonction de si on est en prod ou pas 
   app.use(errorHandler());
 } else {
   app.use((err, req, res, next) => {
@@ -33,3 +33,4 @@ if (process.env.NODE_ENV === 'development') {// fonction pour diferencier si on 
 }
 
 app.listen(port);// pour demarer le serveur express
+

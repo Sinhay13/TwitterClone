@@ -7,7 +7,7 @@ router.get('/', tweetList); // pour acceder a list de tweet
 router.get('/new', tweetNew); // pour acceder aux nouveaux tweet
 router.post('/', tweetCreate); // pour créer un tweet
 router.delete("/:tweetId", tweetDelete); // pour suprimer un tweet
-router.get("/edit/:tweetID", tweetEdit) // pour editer un tweet, tweetID car on recuperer un tweet faut savoir lequelle 
+router.get("/edit/:tweetId", tweetEdit) // pour editer un tweet, tweetID car on recuperer un tweet faut savoir lequelle 
 router.post("/update/:tweetId",tweetUpdate) // pour metre a jour le tweet apres l'avoir édité 
 
   

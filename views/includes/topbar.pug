@@ -1,14 +1,27 @@
 nav(class="navbar navbar-expand-lg navbar-light bg-light")
-  // on redirige sur la home page tweets
-  a(class="navbar-brand" href="/tweets")
-    img(width="60" height="60" src="/images/twitter.png")
-  button(class="navbar-toggler")
-    span(class="navbar-toggler-icon")
-  div(class="collapse navbar-collapse")
-    ul(class="navbar-nav ms-auto")
-      li(class="nav-item active")
-        a(class="btn btn-primary btn-tweet me-3" href="/tweets/new") Tweet
-      li(class="nav-item")
-        a(class="nav-link" href="#") Connexion
+  // This is the top navigation bar with a light background.
 
-// ce ci est le code pug pour ma top bar
+  a(class="navbar-brand" href="/tweets")
+    // This is a link to the home page "tweets" which redirects to tweets.
+    img(width="60" height="60" src="/images/twitter.png")
+    // An image for branding, styled with a width and height.
+
+  button(class="navbar-toggler")
+    // This is a button used for toggling navigation on smaller screens.
+    span(class="navbar-toggler-icon")
+      // The icon that appears when the navigation is collapsed.
+
+  div(class="collapse navbar-collapse")
+    // This is a container for navigation items that will collapse on smaller screens.
+
+    ul(class="navbar-nav ms-auto")
+      // Unordered list used for navigation items, aligned to the right (ms-auto).
+
+      li(class="nav-item active")
+        // List item with an active class, indicating it's the current page.
+        a(class="btn btn-primary btn-tweet me-3" href="/tweets/new") Tweet
+          // A button-link for creating a new tweet.
+      li(class="nav-item")
+        // List item for another navigation option.
+        a(class="nav-link" href="#") Connexion
+          // A link for "Connexion".
