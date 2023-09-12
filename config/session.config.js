@@ -1,2 +1,3 @@
 const { app } = require('../app'); // on recupere notre fichier app a la racine du projet 
 const session = require('express-session'); // on invoque le midleware de expresse pour gérer les sessions
+const MongoStore= require('connect-mongo')(session) // On invoque mongostore avec session, storage session for expresse
