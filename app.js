@@ -5,12 +5,18 @@ const index= require("./routes"); // j'invoque mon fichier route
 const errorHandler = require('errorhandler'); // pour gérrer les erreurs en developpement 
 require('./database'); // c'est la gestion de ma database
 
+
 const app = express(); // je stoke express dans app
+exports.app = app;// on export app pour etre utiliser dans les configs 
 const port = process.env.PORT || 3000; // le processe de conextion au serveur
+
+require('./config/session.config');// on recupére session 
 
 
 app.set("views",path.join(__dirname,"views")); // je declare ou mes vues sont stoker 
 app.set('view engine','pug'); // je declare le type de mes vues 
+
+require('./config/session.config');// On appelle note fichiers config 
 
 app.use(morgan('short')); // je precise l'option que je veut utiliser avec morgan
 app.use(express.static(path.join(__dirname, "public")))// je declare le chemin d'acces de mes fichiers public 

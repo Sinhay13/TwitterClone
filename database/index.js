@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'); // j'invoque mongoose
 const config = require('./config'); // j'invoque l'acces a ma database 
 
-mongoose.connect(config.mongoURI, {useNewUrlParser : true}) // Et je connect
+mongoose.connect(config.mongoURI) // Et je connect
     .then(() => console.log('db ok !')) // Ok
     .catch(err => console.log(err)); // pas ok 
 

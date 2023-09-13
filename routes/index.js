@@ -1,9 +1,11 @@
 const router = require('express').Router(); // j'invoque le routeur d'express
-const tweets = require('./tweets'); // j'invoque mon fichier tweet du meme repertoire
+const tweets = require('./tweets.routes'); // j'invoque mon fichier tweet du meme repertoire
+const users = require('./users.routes'); // j'invoque le fichier pour les routes users 
 
 
 
 router.use('/tweets', tweets);// mon fichier router exclusivement pour la partit tweet. 
+router.use('/users', users); // la meme pour la partie user. 
 
 router.get("/",(req, res) => { // une redirection automatique a l'endpoint "/"
   res.redirect("/tweets");
