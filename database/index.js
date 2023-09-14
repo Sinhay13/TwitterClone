@@ -1,9 +1,18 @@
-const mongoose = require('mongoose'); // j'invoque mongoose
-const config = require('./config'); // j'invoque l'acces a ma database 
+const mongoose = require('mongoose'); // Import mongoose library
+const config = require('./config'); // Import your configuration (assuming it contains mongoURI)
 
-mongoose.connect(config.mongoURI) // Et je connect
-    .then(() => console.log('db ok !')) // Ok
-    .catch(err => console.log(err)); // pas ok 
+// Connect to the MongoDB database using mongoose + Export the clientPromise for use in other parts of your application
+exports.clientPromise = mongoose
+  .connect(
+    config.mongoURI
+  )
+  .catch((err) => console.log(err));      
 
 
-                // Pour me connecter a database identifiants d'accer a la database verouiller sur un fichier en local 
+
+
+
+
+
+
+

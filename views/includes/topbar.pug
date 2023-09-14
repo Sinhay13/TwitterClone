@@ -1,27 +1,38 @@
+// Create a navigation bar with specific classes
 nav(class="navbar navbar-expand-lg navbar-light bg-light")
-  // This is the top navigation bar with a light background.
 
+  // Create a navigation bar brand link to the home page
   a(class="navbar-brand" href="/tweets")
-    // This is a link to the home page "tweets" which redirects to tweets.
-    img(width="60" height="60" src="/images/twitter.png")
-    // An image for branding, styled with a width and height.
 
+    // Create an image for the brand logo
+    img(width="30" height="30" src="/images/twitter.png")
+
+  // Create a button for toggling the navigation bar on small screens
   button(class="navbar-toggler")
-    // This is a button used for toggling navigation on smaller screens.
+
+    // Create a span for the navigation bar toggler icon
     span(class="navbar-toggler-icon")
-      // The icon that appears when the navigation is collapsed.
 
+  // Create a collapsible navigation menu
   div(class="collapse navbar-collapse")
-    // This is a container for navigation items that will collapse on smaller screens.
 
+    // Create an unordered list for the navigation items
     ul(class="navbar-nav ms-auto")
-      // Unordered list used for navigation items, aligned to the right (ms-auto).
 
+      // Create a list item for the active nav item
       li(class="nav-item active")
-        // List item with an active class, indicating it's the current page.
+
+        // Create a button for tweeting with specific styling
         a(class="btn btn-primary btn-tweet me-3" href="/tweets/new") Tweet
-          // A button-link for creating a new tweet.
+
+      // Create a list item for the "Connexion" link
       li(class="nav-item")
-        // List item for another navigation option.
-        a(class="nav-link" href="#") Connexion
-          // A link for "Connexion".
+
+        // Create a link with the "nav-link" class
+        a(class="nav-link") Connexion
+
+      // Create a list item for the "Inscription" link
+      li(class="nav-item")
+
+        // Create a link with the "nav-link" class that points to the signup form
+        a(class="nav-link" href="/users/signup/form") Inscription
