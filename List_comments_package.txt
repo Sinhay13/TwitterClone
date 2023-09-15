@@ -59,6 +59,9 @@
     
     "passport": "^0.6.0",
     // A middleware for authenticating Node.js applications.
+
+    "passport-local": "^1.0.0",
+    // to deal with passport 
     
     "pug": "^3.0.2"
     // A template engine for rendering dynamic HTML.

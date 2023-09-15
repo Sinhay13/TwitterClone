@@ -14,6 +14,12 @@ userSchema.statics.hashPassword = (password) => { // password hashed
   return bcrypt.hash(password, 12);
 };
 
+
+userSchema.methods.comparePassword = function(password) { // to hash password from user and compare with hash from database 
+  return bcrypt.compare(password, this.local.password)
+};
+
+
 const User = mongoose.model('user', userSchema); // on stoke le tout 
 
 module.exports = User; // et on export 

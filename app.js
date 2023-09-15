@@ -11,6 +11,7 @@ exports.app = app;// on export app pour etre utiliser dans les configs
 const port = process.env.PORT || 3000; // le processe de conextion au serveur
 
 require('./config/session.config');// on recupére session 
+require('./config/passport.config'); // call password config 
 
 
 app.set("views",path.join(__dirname,"views")); // je declare ou mes vues sont stoker 

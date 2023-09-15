@@ -14,4 +14,12 @@ exports.createUser = async (user) => { // function to add user in the database
   } catch(e) {
     throw e;// no next because it is not a middleware 
   }
+};
+
+exports.findUserPerEmail = (email) => {
+  return User.findOne({ 'local.email': email }).exec(); // to find user with mail (see config)
+}
+
+exports.findUserPerId = (id) => { // to find user with Id (see config)
+  return User.findById(id).exec();
 }
