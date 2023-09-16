@@ -1,26 +1,24 @@
-//- Create a navigation bar with specified classes
+// Create a navigation bar with Bootstrap classes
 nav(class="navbar navbar-expand-lg navbar-light bg-light")
-  //- Create a link with the "navbar-brand" class and link to /tweets
+  // Create a link to the homepage with Twitter logo
   a(class="navbar-brand" href="/tweets")
-    //- Insert an image with specified width and height
     img(width="30" height="30" src="/images/twitter.png")
-  //- Create a button for toggling navigation
+  // Create a button for toggling the navigation menu on small screens
   button(class="navbar-toggler")
-    //- Insert a span with the "navbar-toggler-icon" class
     span(class="navbar-toggler-icon")
-  //- Create a collapsible navigation content container
+  // Create a div for the collapsible navigation menu
   div(class="collapse navbar-collapse")
-    //- Create an unordered list with navigation items on the right
     ul(class="navbar-nav ms-auto")
-      //- Create a list item with "nav-item" and "active" classes
-      li(class="nav-item active")
-        //- Create a button link for tweeting
-        a(class="btn btn-primary btn-tweet me-3" href="/tweets/new") Tweet
-      //- Create a list item with "nav-item" class
-      li(class="nav-item")
-        //- Create a link for signing in
-        a(class="nav-link" href="/auth/signin/form") Connection
-      //- Create a list item with "nav-item" class
-      li(class="nav-item")
-        //- Create a link for user registration
-        a(class="nav-link" href="/users/signup/form") registration
+      // Check if the user is authenticated
+      if isAuthenticated
+        // If authenticated, show "Tweet" button and  logout link
+        li(class="nav-item active")
+          a(class="btn btn-primary btn-tweet me-3" href="/tweets/new") Tweet
+        li(class="nav-item active")
+          a(class="nav-link" href="/auth/signout") Logout
+      else
+        // If not authenticated, show login and  signup links
+        li(class="nav-item")
+          a(class="nav-link" href="/auth/signin/form") Login
+        li(class="nav-item")
+          a(class="nav-link" href="/users/signup/form") Signup
