@@ -1,38 +1,26 @@
-// Create a navigation bar with specific classes
+//- Create a navigation bar with specified classes
 nav(class="navbar navbar-expand-lg navbar-light bg-light")
-
-  // Create a navigation bar brand link to the home page
+  //- Create a link with the "navbar-brand" class and link to /tweets
   a(class="navbar-brand" href="/tweets")
-
-    // Create an image for the brand logo
+    //- Insert an image with specified width and height
     img(width="30" height="30" src="/images/twitter.png")
-
-  // Create a button for toggling the navigation bar on small screens
+  //- Create a button for toggling navigation
   button(class="navbar-toggler")
-
-    // Create a span for the navigation bar toggler icon
+    //- Insert a span with the "navbar-toggler-icon" class
     span(class="navbar-toggler-icon")
-
-  // Create a collapsible navigation menu
+  //- Create a collapsible navigation content container
   div(class="collapse navbar-collapse")
-
-    // Create an unordered list for the navigation items
+    //- Create an unordered list with navigation items on the right
     ul(class="navbar-nav ms-auto")
-
-      // Create a list item for the active nav item
+      //- Create a list item with "nav-item" and "active" classes
       li(class="nav-item active")
-
-        // Create a button for tweeting with specific styling
+        //- Create a button link for tweeting
         a(class="btn btn-primary btn-tweet me-3" href="/tweets/new") Tweet
-
-      // Create a list item for the "Connexion" link
+      //- Create a list item with "nav-item" class
       li(class="nav-item")
-
-        // Create a link with the "nav-link" class
-        a(class="nav-link") Connexion
-
-      // Create a list item for the "Inscription" link
+        //- Create a link for signing in
+        a(class="nav-link" href="/auth/signin/form") Connection
+      //- Create a list item with "nav-item" class
       li(class="nav-item")
-
-        // Create a link with the "nav-link" class that points to the signup form
-        a(class="nav-link" href="/users/signup/form") Inscription
+        //- Create a link for user registration
+        a(class="nav-link" href="/users/signup/form") registration

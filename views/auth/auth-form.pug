@@ -5,16 +5,12 @@ extends ../layout
 block content
   //- Create a flex container with centering
   div(class="d-flex flex-row content justify-content-center mx-auto")
-    //- Create a form element with the post method and signup action
-    form(class="card" method="post" action="/users/signup")
-      //- Card header for the "Inscription" section
-      div(class="card-header") registration
+    //- Create a form element with the post method and signin action
+    form(class="card" method="post" action="/auth/signin")
+      //- Card header for the "Connection" section
+      div(class="card-header") Connection
       //- Card body
       div(class="card-body")
-        //- Form field for the username
-        div(class="mb-3")
-          label Username
-          input(class="form-control" type="text" name="username")
         //- Form field for the email
         div(class="mb-3")
           label Email
@@ -31,5 +27,4 @@ block content
               li(class="text-danger")= error
         //- Submit button
         div(class="w-100")
-          input(type="submit" value="validate" class="btn btn-primary ms-auto d-block")
-
+          input(type="submit" value="connection" class="btn btn-primary ms-auto d-block")
