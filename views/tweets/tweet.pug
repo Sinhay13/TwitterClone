@@ -1,18 +1,17 @@
+
 extends ../layout.pug
-
 block content
-  // Inclut un script JavaScript depuis le chemin /javascript/tweets/tweet.js
+
+
+  // Includes an external JavaScript file
   script(src="/javascripts/tweets/tweet.js")
-
-  // Crée une division avec la classe "d-flex flex-row content mx-auto"
+  
+  // Creates a flex container with row direction
   div(class="d-flex flex-row content mx-auto")
+    // Includes the profile.pug template
+    include ../includes/profile.pug
 
-    // Crée une division avec la classe "profile-container" pour afficher le profil
-    div(class="profile-container")
-      // Inclut le contenu du fichier ../includes/profile.pug
-      include ../includes/profile.pug
-
-    // Crée une division avec les classes "flex-fill d-flex flex-column" pour afficher la liste de tweets
+    // Creates a flex container with column direction
     div(class="flex-fill d-flex flex-column" id="tweet-list-container")
-      // Inclut le contenu du fichier tweet-list.pug
-      include tweet-list.pug
+        // Includes the tweet-list.pug template
+        include tweet-list.pug

@@ -3,10 +3,10 @@ const schema = mongoose.Schema; // son schemas aussi
 const bcrypt = require('bcrypt'); // function hashed a password 
 
 const userSchema = schema({ // on initier le schemas pour les users 
-  username: { type: String, required: true },
+  username: { type: String, required: true, unique: true }, // parameters of choices
   local: {
-    email: { type: String, required: true },
-    password: { type: String, required: true }
+    email: { type: String, required: true, unique: true },  // parameters of choices
+    password: { type: String, required: true, unique : true } // parameters of choices
   }
 });
 

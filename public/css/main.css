@@ -1,38 +1,56 @@
-/* Définit les styles pour le contenu principal de la page */
+/* Defines styles for the main content of the page */
 .content {
-    max-width: 1000px; /* Largeur maximale du contenu */
-    margin-top: 20px; /* Marge en haut du contenu */
+    max-width: 1000px; /* Maximum width of the content */
+    margin-top: 20px; /* Top margin of the content */
 }
 
-/* Styles pour la section affichant le profil de l'utilisateur */
+/* Styles for the section displaying the user's profile */
 .profile-container {
-    width: 30%; /* Largeur de la section */
-    max-width: 300px; /* Largeur maximale de la section */
+    width: 30%; /* Width of the section */
+    max-width: 300px; /* Maximum width of the section */
+    color: #657786;
 }
 
-/* Styles pour le bouton "Tweet" */
+/* Styles for the "Tweet" button */
 .btn-tweet {
-    border-radius: 30px; /* Bordure arrondie du bouton */
+    border-radius: 30px; /* Rounded button border */
 }
 
-/* Styles pour les éléments avec la classe "b" */
+/* Styles for elements with the class "b" */
 .b {
-    border: 1px solid red; /* Bordure de 1px en rouge */
+    border: 1px solid red; /* 1px red border */
 }
 
-/* Styles pour les éléments avec la classe "b1" */
+/* Styles for elements with the class "b1" */
 .b1 {
-    border: 1px solid green; /* Bordure de 1px en vert */
+    border: 1px solid green; /* 1px green border */
 }
 
-/* Styles pour les éléments de tweet */
+/* Navbar styles */
+.navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive image styles */
+.img-fluid {
+    max-height: 100px;
+}
+
+/* Body background color */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Styles for elements with the class "tweet-element" */
 .tweet-element {
-    border-radius: 0px; /* Bordure sans arrondi */
-    border-top: 0px; /* Bordure supérieure de 0px */
-    font-size: 14px; /* Taille de police de 14px */
+    border-radius: 0px;
+    font-size: 14px;
+    border: 0px;
+    border-bottom: 1px solid #ddd; 
 }
 
-/* Styles pour le premier élément de tweet */
+/* Styles for the first child of an element with the class "tweet-element" */
 .tweet-element:first-child {
-    border-top: 1px solid #ddd; /* Bordure supérieure de 1px en gris */
+    border-top: 1px solid #ddd; 
+    border-bottom: 1px solid #ddd; 
 }

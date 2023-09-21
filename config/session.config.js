@@ -18,4 +18,4 @@ app.use(session({//we ask express to use session to deal with user session
       ttl: 60 * 60 * 24 * 14,// time of session in seconde
     }),
   }));
-
+ 
