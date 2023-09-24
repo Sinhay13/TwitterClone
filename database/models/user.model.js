@@ -7,7 +7,8 @@ const userSchema = schema({ // on initier le schemas pour les users
   local: {
     email: { type: String, required: true, unique: true },  // parameters of choices
     password: { type: String, required: true, unique : true } // parameters of choices
-  }
+  },
+  avatar: { type: String, default: '/images/profile-default-svgrepo-com.svg'} // img + default img 
 });
 
 userSchema.statics.hashPassword = (password) => { // password hashed

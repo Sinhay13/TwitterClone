@@ -12,7 +12,7 @@ block content
   div(class="flex-fill")
 
     // Crée un formulaire avec la classe "card" et configure la méthode et l'action en foction que si on veut créer un tweet ou l'update
-    form(class="card" method="post" action= tweet._id ? "/tweets/update/" + tweet._id : "/tweets")
+    form(class="card w-50 mt-5" method="post" action= tweet._id ? "/tweets/update/" + tweet._id : "/tweets")
     
       // Crée une division avec la classe "card-header" pour le titre du formulaire
       div(class="card-header bg-dark text-white text-center") Write a Tweet
