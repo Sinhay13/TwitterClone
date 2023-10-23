@@ -12,10 +12,8 @@ if tweets
       
         // Crée avec la classe "card-text" pour afficher le contenu du tweet + icone pour modifier tweet (ne pas oublier le dernier slash)
         a(class="card-text" href="/tweets/edit/" + tweet._id)= tweet.content
+        // Crée un lien avec la classe "card-text" pour afficher le contenu du tweet, avec un lien vers la page d'édition du tweet
         
         // Crée un bouton avec la classe "btn btn-danger mt-2 float-right" pour supprimer le tweet
         button(class="btn btn-danger mt-2 float-right" tweetId=tweet._id) x
-        // on lui demande de recuperer un id
-
-
-
+        // Crée un bouton avec la classe "btn btn-danger mt-2 float-right" pour supprimer le tweet, avec l'ID du tweet en tant qu'attribut personnalisé "tweetId"

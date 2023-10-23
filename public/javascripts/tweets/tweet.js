@@ -1,6 +1,6 @@
 // Wait for the DOM content to load before binding the tweet functionality
 window.addEventListener('DOMContentLoaded', () => {
-    bindTweet();
+    bindTweet(); // Call the bindTweet function to bind the tweet delete functionality to buttons
 });
 
 // Function to bind the tweet delete functionality to buttons

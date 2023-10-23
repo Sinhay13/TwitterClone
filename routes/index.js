@@ -1,23 +1,16 @@
-const router = require('express').Router(); // j'invoque le routeur d'express
-const { ensureAuthenticated } = require('../config/guards.config'); // import of guards
+const router = require('express').Router(); // Importing the Express router
+const { ensureAuthenticated } = require('../config/guards.config'); // Importing the ensureAuthenticated function from the guards.config file
 
-const tweets = require('./tweets.routes'); // j'invoque mon fichier tweet du meme repertoire
-const users = require('./users.routes'); // j'invoque le fichier pour les routes users 
-const auth = require('./auth.routes'); // for authentication
+const tweets = require('./tweets.routes'); // Importing the tweets routes file
+const users = require('./users.routes'); // Importing the users routes file
+const auth = require('./auth.routes'); // Importing the authentication routes file
 
+router.use('/tweets',ensureAuthenticated , tweets); // Using the router to handle requests to the /tweets endpoint, with ensureAuthenticated middleware and the tweets routes
+router.use('/users', users); // Using the router to handle requests to the /users endpoint, with the users routes
+router.use('/auth', auth); // Using the router to handle requests to the /auth endpoint, with the authentication routes
 
-router.use('/tweets',ensureAuthenticated , tweets);// mon fichier router exclusivement pour la partit tweet. 
-router.use('/users', users); // la meme pour la partie user. 
-router.use('/auth', auth); // for authentication
-
-router.get("/",(req, res) => { // une redirection automatique a l'endpoint "/"
-  res.redirect("/tweets");
+router.get("/",(req, res) => { // Handling GET requests to the root endpoint
+  res.redirect("/tweets"); // Redirecting to the /tweets endpoint
 })
 
-
-module.exports = router;// j'exporte mon router 
-
-
-
-// nos different endpoint 
-
+module.exports = router; // Exporting the router to be used in other files

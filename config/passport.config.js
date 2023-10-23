@@ -3,19 +3,18 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const { findUserPerEmail, findUserPerId } = require('../queries/users.queries');
 
-app.use(passport.initialize()); // initialisation obligatoire
-app.use(passport.session()); // utilisation des sessions avec passport
+app.use(passport.initialize()); // initialize passport
+app.use(passport.session()); // use sessions with passport
 
-// Après l'authentification nous ne stockons que l'_id du user
-// dans la session pour ne pas la surcharger
+// After authentication, we only store the user's _id in the session to avoid overloading it
 passport.serializeUser((user, done) => {
   done(null, user._id);
 })
 
-// A chaque requête, la session est récupérée par express-session en utilisant
-// l'id de la session dans le cookie. Passport récupère l'_id du user dans la session
-// et exécute cette méthode. Nous récupérons le user avec son _id et le retournons
-// à Passport avec done(null, user). Passport le mettra alors sur req.user
+// On each request, the session is retrieved by express-session using the session id in the cookie.
+// Passport retrieves the user's _id from the session and executes this method.
+// We retrieve the user with their _id and return it to Passport with done(null, user).
+// Passport will then put it on req.user
 passport.deserializeUser(async (id, done) => {
   try {
     const user = await findUserPerId(id);
@@ -25,29 +24,27 @@ passport.deserializeUser(async (id, done) => {
   }
 })
 
-// Configuration de la stratégie locale
-// Nous utilisons l'email comme identifiant et devons donc passer
-// l'option usernameField
+// Configuration of the local strategy
+// We use the email as the identifier and therefore need to pass the usernameField option
 passport.use('local', new LocalStrategy({
   usernameField: 'email'
 }, async (email, password, done) => {
   try {
-      // Nous essayons de récupérer l'utilisateur avec son email
+    // We try to retrieve the user with their email
     const user = await findUserPerEmail(email);
     if (user) {
-      // Si nous le retrouvons nous comparons le mot de passe hashé de la bdd
-      // avec le hash du mot de passe fourni par l'utilisateur
+      // If we find the user, we compare the hashed password from the database
+      // with the hash of the password provided by the user
       const match = await user.comparePassword(password);
       if (match) {
-        // Si ça match alors le mot de passe est correct
+        // If it matches, then the password is correct
         done(null, user);
       } else {
-        // Si les hash ne matchent pas, le mot de passe rentré n'est
-        // pas le bon et nous retournons une erreur
+        // If the hashes do not match, the entered password is incorrect and we return an error
         done(null, false, { message: 'Wrong password' });
       }
     } else {
-      // Si nous n'avons pas de user, nous retournons une erreur
+      // If we don't have a user, we return an error
       done(null, false, { message: 'User not found'});
     }
   } catch(e) {

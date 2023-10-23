@@ -1,25 +1,25 @@
-const User = require('../database/models/user.model'); // we call user from the model
+const User = require('../database/models/user.model'); // Importing the user model
 
-exports.createUser = async (user) => { // function to add user in the database
+exports.createUser = async (user) => { // Function to add a new user to the database
   try {
-    const hashedPassword = await User.hashPassword(user.password);
-    const newUser = new User({
+    const hashedPassword = await User.hashPassword(user.password); // Hashing the user's password using the hashPassword method defined in the User model
+    const newUser = new User({ // Creating a new instance of the "User" model with the provided user data
       username: user.username,
       local: {
         email: user.email,
         password: hashedPassword
       }
     })
-    return newUser.save();
+    return newUser.save(); // Saving the new user to the database
   } catch(e) {
-    throw e;// no next because it is not a middleware 
+    throw e; // Throwing an error if there's an issue with creating the user
   }
 };
 
-exports.findUserPerEmail = (email) => {
-  return User.findOne({ 'local.email': email }).exec(); // to find user with mail (see config)
+exports.findUserPerEmail = (email) => { // Function to find a user by their email
+  return User.findOne({ 'local.email': email }).exec(); // Using the findOne method to find a user with the provided email
 }
 
-exports.findUserPerId = (id) => { // to find user with Id (see config)
-  return User.findById(id).exec();
+exports.findUserPerId = (id) => { // Function to find a user by their ID
+  return User.findById(id).exec(); // Using the findById method to find a user with the provided ID
 }

@@ -1,52 +1,36 @@
-extends ../layout
+extends ../layout // Extending the layout file
 
-block content
-  // je declare mon bloc content
+block content // Defining the content block
 
-  div(class="d-flex flex-row content mx-auto")
-    div(class="profile-container")
-      include ../includes/profile
-      // J'inclu profile
+  div(class="d-flex flex-row content mx-auto") // Creating a flex container for the content
 
-  // Crée une division avec la classe "flex-fill"
-  div(class="flex-fill")
+    div(class="profile-container") // Creating a container for the user's profile
 
-    // Crée un formulaire avec la classe "card" et configure la méthode et l'action en foction que si on veut créer un tweet ou l'update
-    form(class="card w-50 mt-5" method="post" action= tweet._id ? "/tweets/update/" + tweet._id : "/tweets")
-    
-      // Crée une division avec la classe "card-header" pour le titre du formulaire
-      div(class="card-header bg-dark text-white text-center") Write a Tweet
-      
-      // Crée une division avec la classe "card-body" pour le contenu du formulaire
-      div(class="card-body")
-      
-        // Crée une division avec la classe "mb-3" pour le champ de texte
-        div(class="mb-3")
-        
-          // Crée une zone de texte avec la classe "form-control" et le nom "content"
-          // pour saisir le contenu du tweet, avec un texte de substitution + copture le contenu du tweet 
-          textarea(class="form-control" name="content" placeholder="What is happening")=tweet.content
-          
-          // Vérifie s'il y a des erreurs
-          if errors 
-            
-            // Crée une liste non ordonnée avec la classe "my-2" pour afficher les erreurs
-            ul(class="my-2")
-            
-              // Pour chaque erreur dans la liste d'erreurs
-              each error in errors
-                
-                // Crée un élément de liste avec la classe "text-danger" pour afficher l'erreur
-                li(class="text-danger")= error
-                
-        // Crée une division avec la classe "w-100" pour le bouton "Send"
-        div(class="w-100")
-        
-          // Crée un bouton de type "submit" avec la valeur "Send" et les classes "btn btn-primary ms-auto d-block"
-          input(type="submit" value="Send" class="btn btn-primary ms-auto d-block")
+      include ../includes/profile // Including the profile file
 
+  div(class="flex-fill") // Creating a flex container that fills the remaining space
 
+    form(class="card w-50 mt-5" method="post" action= tweet._id ? "/tweets/update/" + tweet._id : "/tweets") // Creating a form for creating or updating a tweet, with a card style and a method and action that depend on whether we're creating a new tweet or updating an existing one
 
+      div(class="card-header bg-dark text-white text-center") Write a Tweet // Creating a card header for the form
+
+      div(class="card-body") // Creating a card body for the form
+
+        div(class="mb-3") // Creating a container for the text field
+
+          textarea(class="form-control" name="content" placeholder="What is happening")=tweet.content // Creating a text area for entering the tweet content, with a placeholder and capturing the content of the tweet
+
+          if errors // Checking if there are any errors
+
+            ul(class="my-2") // Creating an unordered list to display the errors
+
+              each error in errors // Looping through each error in the list
+
+                li(class="text-danger")= error // Creating a list item to display the error
+
+        div(class="w-100") // Creating a container for the "Send" button
+
+          input(type="submit" value="Send" class="btn btn-primary ms-auto d-block") // Creating a submit button with the value "Send" and some styling classes
 
 
 

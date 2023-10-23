@@ -1,16 +1,16 @@
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Twitter
-    link(rel="stylesheet", href="/css/main.css")
-    // je link mon css
-    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM", crossorigin="anonymous")
-    // je link bootstrap
-    script(src="https://unpkg.com/axios@1.1.2/dist/axios.min.js")
-    // je link axios (Axios est une bibliothèque JavaScript populaire qui est utilisée pour effectuer des requêtes HTTP depuis un navigateur ou depuis Node.js. Elle offre une API simple et intuitive pour effectuer des appels réseau asynchrones et gérer les réponses.)
-  body
-    include ./includes/topbar.pug
-    // pour inclure ma top bar
-    .container-fluid
-      block content
+html(lang="en") // Defining the HTML document with the "en" language attribute
+  head // Defining the head section of the document
+    meta(charset="UTF-8") // Defining a meta tag for the character set
+    meta(name="viewport", content="width=device-width, initial-scale=1.0") // Defining a meta tag for the viewport
+    title Twitter // Defining the title of the document
+    link(rel="stylesheet", href="/css/main.css") // Linking the main CSS file
+    // Linking the main CSS file
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM", crossorigin="anonymous") // Linking the Bootstrap CSS file
+    // Linking the Bootstrap CSS file
+    script(src="https://unpkg.com/axios@1.1.2/dist/axios.min.js") // Linking the Axios library
+    // Linking the Axios library (Axios is a popular JavaScript library that is used to make HTTP requests from a browser or from Node.js. It provides a simple and intuitive API for making asynchronous network calls and handling responses.)
+  body // Defining the body section of the document
+    include ./includes/topbar.pug // Including the topbar file
+    // Including the topbar file
+    .container-fluid // Creating a fluid container for the content
+      block content // Defining a block for the content of the page

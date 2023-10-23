@@ -1,21 +1,18 @@
-const { app } = require('../app'); // on recupere notre fichier app a la racine du projet 
-const session = require('express-session'); // on invoque le midleware de expresse pour gérer les sessions
-const MongoStore= require('connect-mongo'); // On invoque mongostore avec session, storage session for expresse
-const {clientPromise}= require('../database'); // acces to the database 
+const { app } = require('../app'); // Importing the app file from the root of the project
+const session = require('express-session'); // Importing the express-session middleware to manage sessions
+const MongoStore= require('connect-mongo'); // Importing MongoStore with session to store sessions for express
+const {clientPromise}= require('../database'); // Importing the clientPromise from the database file to access the database
 
-
-
-app.use(session({//we ask express to use session to deal with user session
-    secret: 'Comicsvampires13', // for the Id cookie
-    resave: false, // false like that we do not write for each session if nothing was changed
-    saveUninitialized: false, // same no new save if nothing change 
-    cookie: { // configure cooki 
-      httpOnly: false, // block acces to the content of javascript front
-      maxAge: 1000 * 60 * 60 * 24 * 14 // max age in milisecond
+app.use(session({ // Using the session middleware to manage user sessions
+    secret: 'Comicsvampires13', // Secret key for the session ID cookie
+    resave: false, // Don't save the session if nothing was changed
+    saveUninitialized: false, // Don't save a new session if nothing was changed
+    cookie: { // Configuring the cookie
+      httpOnly: false, // Blocking access to the content of the cookie from front-end JavaScript
+      maxAge: 1000 * 60 * 60 * 24 * 14 // Maximum age of the cookie in milliseconds (here, 14 days)
     },
-    store: MongoStore.create({// for creatin a new onstance 
-      clientPromise: clientPromise.then((m) => m.connection.getClient()),// to get the promise
-      ttl: 60 * 60 * 24 * 14,// time of session in seconde
+    store: MongoStore.create({ // Creating a new instance of MongoStore to store sessions
+      clientPromise: clientPromise.then((m) => m.connection.getClient()), // Getting the promise from clientPromise
+      ttl: 60 * 60 * 24 * 14, // Time-to-live of the session in seconds (here, 14 days)
     }),
   }));
- 

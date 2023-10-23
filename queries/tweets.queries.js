@@ -1,28 +1,23 @@
-const Tweet = require('../database/models/tweet.model'); // j'invoke mon tweet model depuis mon model
+const Tweet = require('../database/models/tweet.model'); // Importing the tweet model
 
-exports.getTweets = () => { // cette fonction a pour but recuperer tout les tweets present
+exports.getTweets = () => { // Function to get all tweets
   return Tweet.find({}).exec();
 }
 
-exports.createTweet = (tweet) => { // cette fonction a pour but de créer un tweet
-  const newTweet = new Tweet(tweet); // crée une nouvelle instance du modèle "Tweet" avec les données du tweet fourni.
-  return newTweet.save(); // je sauve mon tweet
+exports.createTweet = (tweet) => { // Function to create a new tweet
+  const newTweet = new Tweet(tweet); // Creating a new instance of the "Tweet" model with the provided tweet data
+  return newTweet.save(); // Saving the new tweet
 }
 
-exports.deleteTweet=(tweetId) => {
-  return Tweet.findByIdAndDelete(tweetId).exec(); // method pour gérer la supression des tweets 
+exports.deleteTweet=(tweetId) => { // Function to delete a tweet
+  return Tweet.findByIdAndDelete(tweetId).exec(); // Using the findByIdAndDelete method to delete the tweet
 }
 
-exports.getTweet=(tweetId) => {
-  return Tweet.findOne({ _id: tweetId }).exec();// function pour recuperer un tweet en fonction de sont Id 
+exports.getTweet=(tweetId) => { // Function to get a specific tweet by its ID
+  return Tweet.findOne({ _id: tweetId }).exec();
 }
 
-exports.updateTweet = (tweetId,tweet) => {
-  return Tweet.findByIdAndUpdate(tweetId, {$set: tweet }, {runValidators: true}); // ma methode  pour update et j'oubli pas de metre les validators car avant les mis a jour il ne sont pas mis en place 
-
+exports.updateTweet = (tweetId,tweet) => { // Function to update a tweet
+  return Tweet.findByIdAndUpdate(tweetId, {$set: tweet }, {runValidators: true}); // Using the findByIdAndUpdate method to update the tweet, with validators enabled
 }
-
-// Mais function logique que j'utilise dans mon controler sont repertorier ici. 
-
-
  

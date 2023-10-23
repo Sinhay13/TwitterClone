@@ -8,7 +8,7 @@
 .profile-container {
     width: 30%; /* Width of the section */
     max-width: 300px; /* Maximum width of the section */
-    color: #657786;
+    color: #657786; /* Text color of the section */
 }
 
 /* Styles for the "Tweet" button */
@@ -28,29 +28,29 @@
 
 /* Navbar styles */
 .navbar {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25); /* Bottom border of the navbar */
 }
 
 /* Responsive image styles */
 .img-fluid {
-    max-height: 100px;
+    max-height: 100px; /* Maximum height of the image */
 }
 
 /* Body background color */
 body {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Background color of the body */
 }
 
 /* Styles for elements with the class "tweet-element" */
 .tweet-element {
-    border-radius: 0px;
-    font-size: 14px;
-    border: 0px;
-    border-bottom: 1px solid #ddd; 
+    border-radius: 0px; /* Border radius of the tweet element */
+    font-size: 14px; /* Font size of the tweet element */
+    border: 0px; /* Border of the tweet element */
+    border-bottom: 1px solid #ddd; /* Bottom border of the tweet element */
 }
 
 /* Styles for the first child of an element with the class "tweet-element" */
 .tweet-element:first-child {
-    border-top: 1px solid #ddd; 
-    border-bottom: 1px solid #ddd; 
+    border-top: 1px solid #ddd; /* Top border of the first child of the tweet element */
+    border-bottom: 1px solid #ddd; /* Bottom border of the first child of the tweet element */
 }
