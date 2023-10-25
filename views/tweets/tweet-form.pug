@@ -1,36 +1,37 @@
-extends ../layout // Extending the layout file
 
-block content // Defining the content block
+extends ../layout 
+block content 
 
-  div(class="d-flex flex-row content mx-auto") // Creating a flex container for the content
-
-    div(class="profile-container") // Creating a container for the user's profile
-
-      include ../includes/profile // Including the profile file
-
-  div(class="flex-fill") // Creating a flex container that fills the remaining space
-
-    form(class="card w-50 mt-5" method="post" action= tweet._id ? "/tweets/update/" + tweet._id : "/tweets") // Creating a form for creating or updating a tweet, with a card style and a method and action that depend on whether we're creating a new tweet or updating an existing one
-
-      div(class="card-header bg-dark text-white text-center") Write a Tweet // Creating a card header for the form
-
-      div(class="card-body") // Creating a card body for the form
-
-        div(class="mb-3") // Creating a container for the text field
-
-          textarea(class="form-control" name="content" placeholder="What is happening")=tweet.content // Creating a text area for entering the tweet content, with a placeholder and capturing the content of the tweet
-
-          if errors // Checking if there are any errors
-
-            ul(class="my-2") // Creating an unordered list to display the errors
-
-              each error in errors // Looping through each error in the list
-
-                li(class="text-danger")= error // Creating a list item to display the error
-
-        div(class="w-100") // Creating a container for the "Send" button
-
-          input(type="submit" value="Send" class="btn btn-primary ms-auto d-block") // Creating a submit button with the value "Send" and some styling classes
+  // Creating a flex container for the content
+  div(class="d-flex flex-row content mx-auto") 
+    // Creating a container for the user's profile
+    div(class="profile-container") 
+      // Including the profile file
+      include ../includes/profile 
+  // Creating a flex container that fills the remaining space
+  div(class="flex-fill") 
+    // Creating a form for creating or updating a tweet, with a card style and a method and action that depend on whether we're creating a new tweet or updating an existing one
+    form(class="card w-50 mt-5" method="post" action= tweet._id ? "/tweets/update/" + tweet._id : "/tweets") 
+      // Creating a card header for the form
+      div(class="card-header bg-dark text-white text-center") Write a Tweet
+      // Creating a card body for the form 
+      div(class="card-body") 
+        // Creating a container for the text field
+        div(class="mb-3") 
+          // Creating a text area for entering the tweet content, with a placeholder and capturing the content of the tweet
+          textarea(class="form-control" name="content" placeholder="What is happening")=tweet.content 
+          // Checking if there are any errors
+          if errors 
+            // Creating an unordered list to display the errors
+            ul(class="my-2") 
+              // Looping through each error in the list
+              each error in errors 
+                // Creating a list item to display the error
+                li(class="text-danger")= error 
+        // Creating a container for the "Send" button
+        div(class="w-100") 
+          // Creating a submit button with the value "Send" and some styling classes
+          input(type="submit" value="Send" class="btn btn-primary ms-auto d-block") 
 
 
 

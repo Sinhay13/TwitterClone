@@ -1,19 +1,17 @@
-// Vérifie s'il y a des tweets
+// Check if there are any tweets
 if tweets
 
-  // Pour chaque tweet dans la liste de tweets
+  // For each tweet in the list of tweets
   each tweet in tweets
   
-    // Crée une division avec la classe "card tweet-element" pour afficher chaque tweet
+    // Create a div with class "card tweet-element" to display each tweet
     div(class="card tweet-element")
     
-      // Crée une division avec la classe "card-body" pour le contenu du tweet
+      // Create a div with class "card-body" for the tweet content
       div(class="card-body")
       
-        // Crée avec la classe "card-text" pour afficher le contenu du tweet + icone pour modifier tweet (ne pas oublier le dernier slash)
+        // Create a link with class "card-text" to display the tweet content, with a link to the tweet edit page
         a(class="card-text" href="/tweets/edit/" + tweet._id)= tweet.content
-        // Crée un lien avec la classe "card-text" pour afficher le contenu du tweet, avec un lien vers la page d'édition du tweet
         
-        // Crée un bouton avec la classe "btn btn-danger mt-2 float-right" pour supprimer le tweet
+        // Create a button with class "btn btn-danger mt-2 float-right" to delete the tweet, with the tweet ID as a custom "tweetId" attribute
         button(class="btn btn-danger mt-2 float-right" tweetId=tweet._id) x
-        // Crée un bouton avec la classe "btn btn-danger mt-2 float-right" pour supprimer le tweet, avec l'ID du tweet en tant qu'attribut personnalisé "tweetId"
